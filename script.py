@@ -1,10 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-url_template = "http://superpass.htb/vault/row/{}"  # Adres URL, do którego wysyłane jest żądanie
-output_file = "responses.html"  # Nazwa pliku, do którego zostanie zapisana zawartość odpowiedzi
+url_template = "http://superpass.htb/vault/row/{}"
+output_file = "responses.html"
 
 # Header used from my Windows PC
-# Cookie needs to be obtained if machine gets reset
+# New Cookies must be obtained if machine gets reset
 headers = {
     "Upgrade-Insecure-Requests": "1",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.110 Safari/537.36",
@@ -31,7 +31,6 @@ with open(output_file, "r") as file:
     html_content = file.read()
 
 soup = BeautifulSoup(html_content, "html.parser")
-
 
 rows = soup.find_all("tr")
 
